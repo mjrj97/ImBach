@@ -22,13 +22,21 @@ var note = new Image();
 note.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/WholeNote.svg/2560px-WholeNote.svg.png";
 
 function keyUpHandler(e) {
+    handleInput(e.key);
+}
+
+function buttonHandler(e) {
+    handleInput(e);
+}
+
+function handleInput(e) {
     wasGuess = false;
     for (let i = 0; i < notes.length; i++) {
-        if (e.key == notes[i])
+        if (e == notes[i])
             wasGuess = true;
     }
 
-    if(e.key == notes[currentNote]) {
+    if(e == notes[currentNote]) {
         currentNote = random(0,notes.length-1);
         correct++;
     }
